@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  body > :first-child {
+    @apply fully block overflow-hidden bg-ot-light_green;
+  }
+
+  router-outlet {
+    + * {
+      @apply fully block overflow-hidden;
+    }
+  }
+}
+
+@layer utilities {
+  .h-fully {
+    @apply h-full max-h-full min-h-full;
+  }
+
+  .w-fully {
+    @apply w-full min-w-full max-w-full;
+  }
+
+  .fully {
+    @apply h-fully w-fully;
+  }
+}
