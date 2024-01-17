@@ -3,9 +3,9 @@ import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   standalone: true,
-  selector: 'ot-toolbar',
-  templateUrl: './toolbar.component.html',
+  selector: 'ot-login',
+  templateUrl: './ot-login.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslocoModule]
 })
-export class ToolbarComponent {}
+export class OtLoginComponent {}

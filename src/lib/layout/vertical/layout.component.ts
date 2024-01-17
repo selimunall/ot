@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
-import { ToolbarComponent } from '../ui/toolbar/toolbar.component';
+import { ToolbarComponent } from '../ui/toolbar/ot-toolbar.component';
 
 @Component({
   standalone: true,

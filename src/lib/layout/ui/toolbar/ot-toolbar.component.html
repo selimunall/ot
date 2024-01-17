@@ -1,0 +1,26 @@
+<ng-container *transloco="let t">
+  <div class="flex justify-center">
+    <div class="w-full min-h-10 flex items-center justify-between px-6 py-2">
+      <div class="text-4xl min-w-60">
+        <span class="border-b border-ot-black">THE &nbsp; OT</span>
+      </div>
+
+      <nav class="min-w-60">
+        <ul class="flex gap-8">
+          <li class="text-xl flex gap-2 items-center cursor-pointer">
+            <a class="flex gap-2 items-center"><i class="ot-icon ot-i-forum"></i> {{ t('FORUM') }}</a>
+          </li>
+          <li class="text-xl cursor-pointer">
+            <a class="flex gap-2 items-center"><i class="ot-icon ot-i-plant"></i> {{ t('PLANTS') }}</a>
+          </li>
+          <li class="text-xl flex gap-2 items-center">
+            <button class="flex gap-2 items-center"><i class="ot-icon ot-i-search"></i> {{ t('SEARCH') }}</button>
+          </li>
+          <li class="text-xl flex gap-2 items-center">
+            <button (click)="openLoginModel()" class="flex gap-2 items-center"><i class="ot-icon ot-i-person"></i> {{ t('LOGIN') }}</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</ng-container>
