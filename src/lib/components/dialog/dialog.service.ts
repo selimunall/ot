@@ -6,14 +6,16 @@ export class DialogService {
   #dialog = inject(Dialog);
 
   open<T>(component: Type<T>, title?: string, width?: string, height?: string) {
-    this.#dialog.open(DialogComponent, {
-      width: width,
-      height: height,
-      backdropClass: ['backdrop-blur-sm', 'bg-black/30'],
-      data: {
-        title,
-        component
-      }
-    });
+    console.log('asd');
+    this.#dialog.open(DialogComponent);
+    // this.#dialog.open(DialogComponent, {
+    //   width: width,
+    //   height: height,
+    //   backdropClass: ['backdrop-blur-sm', 'bg-black/30'],
+    //   data: {
+    //     title
+    //     // component
+    //   }
+    // });
   }
 }

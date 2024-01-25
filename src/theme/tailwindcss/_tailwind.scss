@@ -6,7 +6,7 @@
   html,
   body,
   body > :first-child {
-    @apply fully block overflow-hidden bg-ot-light_green;
+    @apply fully block overflow-hidden;
   }
 
   router-outlet {

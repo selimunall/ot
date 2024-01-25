@@ -16,6 +16,7 @@ export class ToolbarComponent {
   #dialogService = inject(DialogService);
 
   openLoginModel(): void {
+    console.log('geld');
     this.#dialogService.open(OtLoginComponent, 'Login', '40%', '40%');
   }
 }
