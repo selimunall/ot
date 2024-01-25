@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoModule } from '@ngneat/transloco';
+import { Button1Component } from '../../../components/buttons/button-1.component';
 import { DialogService } from '../../../components/dialog/dialog.service';
 import { OtLoginComponent } from '../../../ui/login/ot-login.component';
 
@@ -8,11 +9,12 @@ import { OtLoginComponent } from '../../../ui/login/ot-login.component';
   selector: 'ot-toolbar',
   templateUrl: './ot-toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoModule],
+  imports: [TranslocoModule, Button1Component],
   providers: [DialogService]
 })
 export class ToolbarComponent {
   #dialogService = inject(DialogService);
+
   openLoginModel(): void {
     this.#dialogService.open(OtLoginComponent, 'Login', '40%', '40%');
   }
