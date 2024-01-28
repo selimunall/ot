@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoModule } from '@ngneat/transloco';
-import { ImageService } from '../../services/image.service';
+import { CommonStateService } from '../../state/ot-common.state';
 
 @Component({
   standalone: true,
@@ -10,8 +10,9 @@ import { ImageService } from '../../services/image.service';
   imports: [TranslocoModule]
 })
 export class OtHomeComponent {
-  image = inject(ImageService);
+  #cmnState = inject(CommonStateService);
+
   constructor() {
-    this.image.get();
+    this.#cmnState;
   }
 }
