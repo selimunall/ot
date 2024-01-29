@@ -1,6 +1,6 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { ListResult } from '@angular/fire/storage';
-import { ImageService } from '../services/image.api';
+import { ImageApi } from '../services/ot-image.api';
 
 export interface CommonState {
   appStorage: ListResult;
@@ -14,17 +14,24 @@ const initialState: CommonState = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class CommonStateService {
+export class ImageStateService {
   #state = signal<CommonState>(initialState);
-  #api = inject(ImageService);
+  #api = inject(ImageApi);
 
   init() {
+    this.getPaths('home');
+  }
+
+  getPaths(mainPath: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.#api.getStorage().then((m) => {
-        this.#state.update((state) => ({ ...state, appStorage: m }));
-        console.log(m);
-        resolve();
-      });
+      this.#api
+        .getPaths(mainPath)
+        .then((m) => {
+          this.#state.update((state) => ({ ...state, appStorage: m }));
+        })
+        .finally(() => resolve());
     });
   }
+
+  getHomeImage() {}
 }
