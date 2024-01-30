@@ -15,11 +15,5 @@ export const appConfig: ApplicationConfig = {
     provideTranslocoModule(),
     importProvidersFrom(provideFirebaseApp(() => initializeApp(environment.firebaseConfig))),
     importProvidersFrom(provideFirestore(() => getFirestore()))
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: initialize,
-    //   multi: true,
-    //   deps: [StorageStateService]
-    // }
   ]
 };

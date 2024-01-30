@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
-import { ListResult, getDownloadURL, getStorage, listAll, ref } from '@angular/fire/storage';
+import { ListResult, getBlob, getStorage, listAll, ref } from '@angular/fire/storage';
 
 @Injectable({ providedIn: 'root' })
 export class ImageApi {
@@ -12,8 +12,8 @@ export class ImageApi {
     return listAll(strRef);
   }
 
-  getImage(path: string): Promise<any> {
+  getImage(path: string): Promise<Blob> {
     const rf = ref(this.storage, path);
-    return getDownloadURL(rf);
+    return getBlob(rf);
   }
 }
