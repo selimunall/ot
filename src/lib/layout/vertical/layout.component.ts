@@ -1,6 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
+import { OtSearchComponent } from 'src/lib/ui/search/ot-search.component';
+import { OtLayoutStateService } from '../ot-layout.state';
 import { ToolbarComponent } from '../ui/toolbar/ot-toolbar.component';
 
 @Component({
@@ -8,6 +11,9 @@ import { ToolbarComponent } from '../ui/toolbar/ot-toolbar.component';
   selector: 'ot-layout',
   templateUrl: './layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoModule, RouterOutlet, ToolbarComponent]
+  imports: [TranslocoModule, RouterOutlet, ToolbarComponent, OtSearchComponent, NgClass],
+  providers: [OtLayoutStateService]
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  state = inject(OtLayoutStateService);
+}

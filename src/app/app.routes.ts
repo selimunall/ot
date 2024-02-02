@@ -3,7 +3,15 @@ import { OtHomeComponent } from '../lib/pages/home/ot-home.component';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: OtHomeComponent
+  },
+  {
+    path: 'forum',
+    component: OtHomeComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
 ];

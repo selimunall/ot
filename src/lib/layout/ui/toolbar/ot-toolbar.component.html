@@ -1,20 +1,30 @@
 <ng-container *transloco="let t">
   <div class="flex justify-center">
-    <div class="w-full min-h-10 flex items-center justify-between px-6 py-2">
-      <div class="text-4xl min-w-60">
-        <span class="border-b border-ot-black">THE &nbsp; OT</span>
+    <div class="w-full min-h-10 flex items-center justify-between px-2 lg:px-6 lg:py-2">
+      <div class="text-2xl md:text-4xl min-w-28 lg:min-w-60">
+        <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="border-b border-ot-black">THE &nbsp; OT</a>
       </div>
 
-      <nav class="min-w-60">
-        <ul class="flex gap-8">
+      <nav class="">
+        <ul class="flex md:hidden">
+          <li class="text-xl flex items-center">
+            <ot-button-1 (clicked)="openLoginModel()" [title]="t('LOGIN')" icon="ot-icon ot-i-person" />
+          </li>
+          <li class="text-xl flex items-center">
+            <button class="">
+              <i class="ot-icon ot-i-menu"></i>
+            </button>
+          </li>
+        </ul>
+        <ul class="hidden md:flex gap-4 lg:!gap-8">
           <li class="text-xl flex gap-2 items-center cursor-pointer">
             <ot-button-1 [title]="t('FORUM')" [icon]="'ot-icon ot-i-forum'" [link]="['/forum']" />
           </li>
           <li class="text-xl cursor-pointer">
-            <ot-button-1 [title]="t('PLANTS')" icon="ot-icon ot-i-plant" />
+            <ot-button-1 [title]="t('PLANTS')" icon="ot-icon ot-i-plant" [link]="['/plants']" />
           </li>
           <li class="text-xl flex gap-2 items-center">
-            <ot-button-1 [title]="t('SEARCH')" icon="ot-icon ot-i-search" />
+            <ot-button-1 (clicked)="state.toggleSearchModal()" [title]="t('SEARCH')" icon="ot-icon ot-i-search" />
           </li>
           <li class="text-xl flex gap-2 items-center">
             <ot-button-1 (clicked)="openLoginModel()" [title]="t('LOGIN')" icon="ot-icon ot-i-person" />

@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslocoModule } from '@ngneat/transloco';
+import { Button1Component } from 'src/lib/components/buttons/button-1.component';
 import { ImageApi } from 'src/lib/services/ot-image.api';
 
 export interface HomeState {
@@ -19,7 +20,7 @@ const initalState: HomeState = {
   selector: 'ot-home',
   templateUrl: './ot-home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoModule, NgClass]
+  imports: [TranslocoModule, NgClass, Button1Component]
 })
 export class OtHomeComponent {
   #api = inject(ImageApi);

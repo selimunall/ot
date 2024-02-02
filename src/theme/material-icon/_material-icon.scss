@@ -33,7 +33,9 @@ $icons: (
   'plant': '\e123',
   'forum': '\e0bf',
   'search': '\e8b6',
-  'close': '\e5cd'
+  'close': '\e5cd',
+  'menu': '\e5d2',
+  'progress-activity': '\e9d0'
 );
 
 @each $name, $glyph in $icons {
