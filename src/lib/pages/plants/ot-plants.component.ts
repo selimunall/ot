@@ -3,9 +3,9 @@ import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   standalone: true,
-  selector: 'ot-forum',
-  templateUrl: './ot-forum.component.html',
+  selector: 'ot-plants',
+  templateUrl: './ot-plants.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslocoModule]
 })
-export class OtForumComponent {}
+export class OtPlantsComponent {}
