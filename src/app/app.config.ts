@@ -15,6 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideTranslocoModule(),
     provideHttpClient(withInterceptors([tokenInterceptor])),
     importProvidersFrom(provideFirebaseApp(() => initializeApp(environment.firebaseConfig))),
-    importProvidersFrom(provideFirestore(() => getFirestore()))
+    importProvidersFrom(provideFirestore(() => getFirestore())),
+    { provide: OT_ENVIRONMENT, useValue: environment }
   ]
 };
