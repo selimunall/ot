@@ -29,6 +29,7 @@ export class OtHomeComponent {
 
   readonly data = computed(() => this.#state().images);
   readonly slideIndex = computed(() => this.#state().slideIndex);
+  readonly homeSide = signal<any>(null);
 
   constructor() {
     this.getImages();
@@ -38,10 +39,14 @@ export class OtHomeComponent {
     await this.#api.getPaths('home').then((paths) => {
       paths.items.forEach(async (m) => {
         await this.#api.getImage(m.fullPath).then((image) => {
-          this.#state.update((state) => ({
-            ...state,
-            images: [...state.images, { name: m.name, url: this.#sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(image)) }]
-          }));
+          if (m.name === 'home-side.png') {
+            this.homeSide.set({ name: m.name, url: this.#sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(image)) });
+          } else {
+            this.#state.update((state) => ({
+              ...state,
+              images: [...state.images, { name: m.name, url: this.#sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(image)) }]
+            }));
+          }
         });
       });
     });

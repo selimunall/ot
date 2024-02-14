@@ -17,7 +17,7 @@ import { TranslocoModule } from '@ngneat/transloco';
       </a>
       } @else {
       <button (click)="clicked.emit($event)" class="items-center gap-2 relative inline-flex justify-center px-4 py-2 overflow-hidden font-medium rounded-lg group bg-white">
-        <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-white/15 bg-opacity-30 rounded-full group-hover:w-56 group-hover:h-56"></span>
+        <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-slate-300 bg-opacity-30 rounded-full group-hover:w-56 group-hover:h-56"></span>
         <ng-container *ngTemplateOutlet="button1"></ng-container>
       </button>
       }
@@ -27,7 +27,7 @@ import { TranslocoModule } from '@ngneat/transloco';
       @if(!!icon()) {
       <i [class]="icon()"></i>
       } @if (!!title()) {
-      <span>
+      <span [ngClass]="{ 'text-base': size() === 'base', 'text-xs': size() === 'small', 'text-xl': size() === 'large' }">
         {{ title() }}
       </span>
       }
@@ -39,6 +39,7 @@ export class Button1Component {
   icon = input<string>();
   fill = input<string>();
   link = input<any[]>();
+  size = input<'small' | 'base' | 'large'>('large');
 
   @Output() clicked = new EventEmitter<any>();
 }
