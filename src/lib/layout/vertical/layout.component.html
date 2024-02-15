@@ -1,7 +1,9 @@
 <div class="fully relative">
   <ot-toolbar />
   <router-outlet></router-outlet>
-  <div [ngClass]="{ '!translate-x-0': state.isOpenSearchModel() }" class="translate-x-full transition-all duration-300 absolute top-0 right-0 w-1/4 bg-ot-light_green h-screen">
+  <div
+    [ngClass]="{ '!translate-x-0': state.isOpenSearchModel() }"
+    class="translate-x-full transition-all duration-300 absolute top-0 right-0 w-1/4 bg-ot-light_green/60 backdrop-blur-md h-screen">
     <ot-search (clicked)="state.toggleSearchModal()" />
   </div>
 </div>

@@ -1,13 +1,19 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { TranslocoModule } from '@ngneat/transloco';
 import { Button1Component } from 'src/lib/components/buttons/button-1.component';
+import { GetImagePipe } from 'src/lib/core/pipes/get-image.pipe';
 import { ImageApi } from 'src/lib/services/ot-image.api';
 
-export interface HomeState {
-  images: any[];
+interface HomeState {
+  images: DownloadedImage[];
   slideIndex: number;
+}
+
+interface DownloadedImage {
+  name: string;
+  url: SafeResourceUrl;
 }
 
 const initalState: HomeState = {
@@ -20,34 +26,38 @@ const initalState: HomeState = {
   selector: 'ot-home',
   templateUrl: './ot-home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoModule, NgClass, Button1Component]
+  imports: [TranslocoModule, NgClass, Button1Component, GetImagePipe]
 })
 export class OtHomeComponent {
   #api = inject(ImageApi);
   #sanitizer = inject(DomSanitizer);
+
   #state = signal<HomeState>(initalState);
 
-  readonly data = computed(() => this.#state().images);
+  readonly images = computed(() => this.#state().images);
   readonly slideIndex = computed(() => this.#state().slideIndex);
-  readonly homeSide = signal<any>(null);
 
   constructor() {
+    console.log('geliyor');
     this.getImages();
   }
 
+  ngOnInit() {
+    console.log('geliyor');
+  }
+
   async getImages() {
+    console.log('geliyor');
+
     await this.#api.getPaths('home').then((paths) => {
       paths.items.forEach(async (m) => {
         await this.#api.getImage(m.fullPath).then((image) => {
-          if (m.name === 'home-side.png') {
-            this.homeSide.set({ name: m.name, url: this.#sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(image)) });
-          } else {
-            this.#state.update((state) => ({
-              ...state,
-              images: [...state.images, { name: m.name, url: this.#sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(image)) }]
-            }));
-          }
+          this.#state.update((state) => ({
+            ...state,
+            images: [...state.images, { name: m.name, url: this.#sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(image)) }]
+          }));
         });
+        console.log(this.images(), 'asd');
       });
     });
   }
