@@ -1,3 +1,7 @@
-<div class="fully relative">
-  <img class="absolute right-0 bottom-5 lg:bottom-0 w-60 w- lg:w-[400px]" [src]="images() | getImage : 'home-side.png'" />
-</div>
+<ng-container *transloco="let t; read: 'HOME_PAGE'">
+  <div class="fully relative">
+    <div class="p-4 mt-4" [innerHTML]="t('DESCRIPTION')"></div>
+
+    <img class="absolute right-0 bottom-5 lg:bottom-0 w-60 w- lg:w-[400px]" [src]="images() | getImage : 'home-side.png'" />
+  </div>
+</ng-container>

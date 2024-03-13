@@ -2,5 +2,10 @@
   "OT": "Ot",
   "PLANTS": "Plants",
   "FORUM": "Forum",
-  "LOGIN": "Login"
+  "LOGIN": "Login",
+  "SEARCH": "Search",
+  "HOME": "Home",
+  "HOME_PAGE": {
+    "DESCRIPTION": "<span class='!text-2xl !font-medium'>Welcome!</span> <br/><br/> <span class='text-lg'> &emsp;Welcome to 'The OT'! Your go-to source for all things plants. Ready to dive into the magical world of nature? Discover the diversity, cultivation, and fascinating features of plants right here. Let's explore together!</span>"
+  }
 }

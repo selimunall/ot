@@ -10,27 +10,27 @@
       <nav>
         <ul class="flex md:hidden items-center">
           <li class="text-xl flex items-center">
-            <ot-button-1 [size]="'base'" (clicked)="openLoginModel()" [title]="t('LOGIN')" icon="ot-icon ot-i-person" />
+            <ot-button-1 [buttonOptions]="{ size: 'base', title: t('LOGIN'), icon: 'ot-icon ot-i-person' }" (clicked)="openLoginModel()" />
           </li>
           <li class="text-xl justify-center flex items-center">
-            <i class="ot-icon ot-i-menu"></i>
+            <ot-button-1 [buttonOptions]="{ size: 'base', icon: 'ot-icon ot-i-menu' }" (clicked)="openLoginModel()" />
           </li>
         </ul>
         <ul class="hidden md:flex gap-4 lg:!gap-8">
           <li class="text-xl flex gap-2 items-center cursor-pointer">
-            <ot-button-1 [title]="t('HOME')" [icon]="'ot-icon ot-i-home'" [link]="['/home']" />
+            <ot-button-1 [buttonOptions]="{ size: 'base', title: t('HOME'), icon: 'ot-icon ot-i-home', link: ['/home'] }" />
           </li>
           <li class="text-xl flex gap-2 items-center cursor-pointer">
-            <ot-button-1 [title]="t('FORUM')" [icon]="'ot-icon ot-i-forum'" [link]="['/forum']" />
+            <ot-button-1 [buttonOptions]="{ size: 'base', title: t('FORUM'), icon: 'ot-icon ot-i-forum', link: ['/forum'] }" />
           </li>
           <li class="text-xl cursor-pointer">
-            <ot-button-1 [title]="t('PLANTS')" icon="ot-icon ot-i-plant" [link]="['/plants']" />
+            <ot-button-1 [buttonOptions]="{ size: 'base', title: t('PLANTS'), icon: 'ot-icon ot-i-plant', link: ['/plants'] }" />
           </li>
           <li class="text-xl flex gap-2 items-center">
-            <ot-button-1 (clicked)="state.toggleSearchModal()" [title]="t('SEARCH')" icon="ot-icon ot-i-search" />
+            <ot-button-1 (clicked)="state.toggleSearchModal()" [buttonOptions]="{ title: t('SEARCH'), icon: 'ot-icon ot-i-search' }" />
           </li>
           <li class="text-xl flex gap-2 items-center">
-            <ot-button-1 (clicked)="openLoginModel()" [title]="t('LOGIN')" icon="ot-icon ot-i-person" />
+            <ot-button-1 (clicked)="openLoginModel()" [buttonOptions]="{ title: t('LOGIN'), icon: 'ot-icon ot-i-person' }" />
           </li>
         </ul>
       </nav>

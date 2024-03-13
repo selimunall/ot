@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nx serve",
+    "start": "nx serve -- --host 0.0.0.0",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test"
@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^17.1.1",
     "@angular/router": "^17.1.1",
     "@ngneat/transloco": "^6.0.4",
+    "ang-jsoneditor": "^3.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
