@@ -11,14 +11,13 @@ import { OtLayoutStateService } from '../../ot-layout.state';
   selector: 'ot-toolbar',
   templateUrl: './ot-toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoModule, Button1Component, RouterLink],
-  providers: [DialogService]
+  imports: [TranslocoModule, Button1Component, RouterLink]
 })
 export class ToolbarComponent {
   #dialogService = inject(DialogService);
   state = inject(OtLayoutStateService);
 
   openLoginModel(): void {
-    this.#dialogService.open(OtLoginComponent, 'Login', '40%', '40%');
+    this.#dialogService.open(OtLoginComponent, 'Login', '90%', '60%');
   }
 }

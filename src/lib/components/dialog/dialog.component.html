@@ -1,1 +1,16 @@
-a-con
+@if (!hidden) {
+<div class="flex flex-col rounded-2xl !bg-white px-8 py-6" @zoomIn @zoomOut>
+  <div class="flex flex-row justify-between">
+    <div class="flex flex-row items-end gap-2">
+      <span class="text-2xl font-medium">{{ dialogTitle }}</span>
+      @if (dialogSecondTitle) {
+      <span class="text-lg text-white/30">{{ dialogSecondTitle }}</span>
+      }
+    </div>
+    <button (click)="close()">
+      <i class="ot-icon ot-i-close"></i>
+    </button>
+  </div>
+  <ng-container *ngComponentOutlet="dialogComponent"></ng-container>
+</div>
+}
